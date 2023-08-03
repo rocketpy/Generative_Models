@@ -2,6 +2,13 @@
 
 # https://github.com/Stability-AI/generative-models
 
+# For training
+# https://lightning.ai/docs/pytorch/stable/
+
+# pip install lightning
+# Conda 
+# conda install lightning -c conda-forge
+
 # Installation:
 """
 # 1. Clone the repo
