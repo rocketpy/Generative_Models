@@ -17,3 +17,16 @@ pip install -U audiocraft  # stable release
 pip install -U git+https://git@github.com/facebookresearch/audiocraft#egg=audiocraft  # bleeding edge
 pip install -e .  # or if you cloned the repo locally (mandatory if you want to train).
 """
+
+# AudioCraft training pipelines
+# https://github.com/facebookresearch/audiocraft/blob/main/docs/TRAINING.md
+
+# Models
+"""
+At the moment, AudioCraft contains the training code and inference code for:
+
+MusicGen: A state-of-the-art controllable text-to-music model.
+AudioGen: A state-of-the-art text-to-sound model.
+EnCodec: A state-of-the-art high fidelity neural audio codec.
+Multi Band Diffusion: An EnCodec compatible decoder using diffusion.
+"""
