@@ -30,3 +30,19 @@ AudioGen: A state-of-the-art text-to-sound model.
 EnCodec: A state-of-the-art high fidelity neural audio codec.
 Multi Band Diffusion: An EnCodec compatible decoder using diffusion.
 """
+
+# MusicGen: Simple and Controllable Music Generation
+# https://github.com/facebookresearch/audiocraft/blob/main/docs/MUSICGEN.md
+
+# AudioCraft requires a GPU with at least 16 GB of memory for running inference with the medium-sized models (~1.5B parameters) !!!!!
+
+# Usage
+"""
+We offer a number of way to interact with MusicGen:
+
+A demo is also available on the facebook/MusicGen Hugging Face Space (huge thanks to all the HF team for their support).
+You can run the extended demo on a Colab: colab notebook
+You can use the gradio demo locally by running python -m demos.musicgen_app --share.
+You can play with MusicGen by running the jupyter notebook at demos/musicgen_demo.ipynb locally (if you have a GPU).
+Finally, checkout @camenduru Colab page which is regularly updated with contributions from @camenduru and the community.
+"""
