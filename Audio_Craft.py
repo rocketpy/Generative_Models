@@ -46,3 +46,14 @@ You can use the gradio demo locally by running python -m demos.musicgen_app --sh
 You can play with MusicGen by running the jupyter notebook at demos/musicgen_demo.ipynb locally (if you have a GPU).
 Finally, checkout @camenduru Colab page which is regularly updated with contributions from @camenduru and the community.
 """
+
+# quick example for using the API
+import torchaudio
+from audiocraft.models import MusicGen
+from audiocraft.data.audio import audio_write
+
+model = MusicGen.get_pretrained('facebook/musicgen-melody')
+model.set_generation_params(duration=8)  # generate 8 seconds.
+wav = model.generate_unconditional(4)    # generates 4 unconditional audio samples
+descriptions = ['happy rock', 'energetic EDM', 'sad jazz']
+wav = model.generate(descriptions)  # generates 3 samples.
