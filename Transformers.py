@@ -9,3 +9,11 @@ Text - for tasks like text classification, information extraction, question answ
 Images - for tasks like image classification, object detection, and segmentation.
 Audio - for tasks like speech recognition and audio classification.
 """
+
+
+from transformers import pipeline
+
+# Allocate a pipeline for sentiment-analysis
+classifier = pipeline('sentiment-analysis')
+classifier('We are very happy to introduce pipeline to the transformers repository.')
+# [{'label': 'POSITIVE', 'score': 0.9996980428695679}]
