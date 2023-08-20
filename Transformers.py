@@ -47,3 +47,13 @@ object_detector(image)
  {'score': 0.9986783862113953,
   'label': 'cat',
   'box': {'xmin': 345, 'ymin': 23, 'xmax': 640, 'ymax': 368}}]
+
+
+# to download and use any of the pretrained models on your given task, PyTorch version:
+from transformers import AutoTokenizer, AutoModel
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+model = AutoModel.from_pretrained("bert-base-uncased")
+
+inputs = tokenizer("Hello world!", return_tensors="pt")
+outputs = model(**inputs)
