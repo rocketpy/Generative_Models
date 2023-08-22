@@ -71,3 +71,12 @@ from transformers import pipeline
 
 transcriber = pipeline(task="automatic-speech-recognition", model="openai/whisper-small")
 print(transcriber("https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac"))
+
+
+# Audio classification
+from transformers import pipeline
+
+classifier = pipeline(task="audio-classification", model="superb/hubert-base-superb-er")
+preds = classifier("https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac")
+preds = [{"score": round(pred["score"], 4), "label": pred["label"]} for pred in preds]
+print(preds)
