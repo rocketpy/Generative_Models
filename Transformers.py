@@ -64,3 +64,10 @@ tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 model = TFAutoModel.from_pretrained("bert-base-uncased")
 inputs = tokenizer("Hello world!", return_tensors="tf")
 outputs = model(**inputs)
+
+
+# Automatic speech recognition
+from transformers import pipeline
+
+transcriber = pipeline(task="automatic-speech-recognition", model="openai/whisper-small")
+print(transcriber("https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac"))
