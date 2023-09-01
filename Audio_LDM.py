@@ -1,6 +1,7 @@
 # Audio Generation with AudioLDM
 
 # https://github.com/haoheliu/AudioLDM
+# https://audioldm.github.io/
 
 # Features:
 """
@@ -26,3 +27,14 @@ Start the web application (powered by Gradio)
 python3 app.py
 A link will be printed out. Click the link to open the browser and play.
 """
+
+
+from diffusers import AudioLDMPipeline
+import torch
+
+repo_id = "cvssp/audioldm-s-full-v2"
+pipe = AudioLDMPipeline.from_pretrained(repo_id, torch_dtype=torch.float16)
+pipe = pipe.to("cuda")
+
+prompt = "Techno music with a strong, upbeat tempo and high melodic riffs"
+audio = pipe(prompt, num_inference_steps=10, audio_length_in_s=5.0).audios[0]
