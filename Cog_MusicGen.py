@@ -6,6 +6,14 @@
 # https://github.com/replicate/cog-musicgen
 # https://github.com/replicate/cog
 
+# https://replicate.com/meta/musicgen/api#run
+
+# pip install replicate
+
+# TOKEN - https://replicate.com/account
+
+# export REPLICATE_API_TOKEN=<paste-your-token-here>
+
 
 #Install
 # For macOS using Homebrew:
