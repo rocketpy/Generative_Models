@@ -36,3 +36,21 @@ tts = TTS(model_name="tts_models/multilingual/multi-dataset/your_tts", progress_
 tts.tts_to_file("This is voice cloning.", speaker_wav="my/cloning/audio.wav", language="en", file_path="output.wav")
 tts.tts_to_file("C'est le clonage de la voix.", speaker_wav="my/cloning/audio.wav", language="fr-fr", file_path="output.wav")
 tts.tts_to_file("Isso é clonagem de voz.", speaker_wav="my/cloning/audio.wav", language="pt-br", file_path="output.wav")
+
+
+# Example voice conversion
+# Converting the voice in source_wav to the voice of target_wav
+
+tts = TTS(model_name="voice_conversion_models/multilingual/vctk/freevc24", progress_bar=False).to("cuda")
+tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.wav", file_path="output.wav")
+
+
+# Example voice cloning together with the voice conversion model.
+# This way, you can clone voices by using any model in 🐸TTS.
+
+tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
+tts.tts_with_vc_to_file(
+    "Wie sage ich auf Italienisch, dass ich dich liebe?",
+    speaker_wav="target/speaker.wav",
+    file_path="output.wav"
+)
