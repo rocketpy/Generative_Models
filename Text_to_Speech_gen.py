@@ -46,7 +46,18 @@ tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.w
 
 
 # Example voice cloning together with the voice conversion model.
-# This way, you can clone voices by using any model in 🐸TTS.
+# This way, you can clone voices by using any model in TTS.
+
+tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
+tts.tts_with_vc_to_file(
+    "Wie sage ich auf Italienisch, dass ich dich liebe?",
+    speaker_wav="target/speaker.wav",
+    file_path="output.wav"
+)
+
+
+# Example voice cloning together with the voice conversion model.
+# This way, you can clone voices by using any model in TTS.
 
 tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
 tts.tts_with_vc_to_file(
