@@ -45,6 +45,14 @@ tts = TTS(model_name="voice_conversion_models/multilingual/vctk/freevc24", progr
 tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.wav", file_path="output.wav")
 
 
+# # XTTS model
+models = TTS(cs_api_model="XTTS").list_models()
+# Init TTS with the target studio speaker
+tts = TTS(model_name="coqui_studio/en/Torcull Diarmuid/coqui_studio", progress_bar=False)
+# Run TTS
+tts.tts_to_file(text="This is a test.", file_path=OUTPUT_PATH)
+
+
 # Example voice cloning together with the voice conversion model.
 # This way, you can clone voices by using any model in TTS.
 
