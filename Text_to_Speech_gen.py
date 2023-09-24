@@ -45,7 +45,7 @@ tts = TTS(model_name="voice_conversion_models/multilingual/vctk/freevc24", progr
 tts.voice_conversion_to_file(source_wav="my/source.wav", target_wav="my/target.wav", file_path="output.wav")
 
 
-# # XTTS model
+# XTTS model
 models = TTS(cs_api_model="XTTS").list_models()
 # Init TTS with the target studio speaker
 tts = TTS(model_name="coqui_studio/en/Torcull Diarmuid/coqui_studio", progress_bar=False)
@@ -63,7 +63,7 @@ tts.tts_with_vc_to_file(
     file_path="output.wav"
 )
 
-# # V1 model
+# V1 model
 models = TTS(cs_api_model="V1").list_models()
 # Run TTS with emotion and speed control
 # Emotion control only works with V1 model
@@ -79,6 +79,12 @@ tts.tts_with_vc_to_file(
     speaker_wav="target/speaker.wav",
     file_path="output.wav"
 )
+
+# XTTS-multilingual
+models = TTS(cs_api_model="XTTS-multilingual").list_models()
+# Run TTS with emotion and speed control
+# Emotion control only works with V1 model
+tts.tts_to_file(text="Das ist ein Test.", file_path=OUTPUT_PATH, language="de", speed=1.0)
 
 
 # # XTTS-multilingual
