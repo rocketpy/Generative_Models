@@ -63,6 +63,12 @@ tts.tts_with_vc_to_file(
     file_path="output.wav"
 )
 
+# # V1 model
+models = TTS(cs_api_model="V1").list_models()
+# Run TTS with emotion and speed control
+# Emotion control only works with V1 model
+tts.tts_to_file(text="This is a test.", file_path=OUTPUT_PATH, emotion="Happy", speed=1.5)
+
 
 # Example voice cloning together with the voice conversion model.
 # This way, you can clone voices by using any model in TTS.
