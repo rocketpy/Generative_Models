@@ -79,3 +79,10 @@ tts.tts_with_vc_to_file(
     speaker_wav="target/speaker.wav",
     file_path="output.wav"
 )
+
+
+# # XTTS-multilingual
+models = TTS(cs_api_model="XTTS-multilingual").list_models()
+# Run TTS with emotion and speed control
+# Emotion control only works with V1 model
+tts.tts_to_file(text="Das ist ein Test.", file_path=OUTPUT_PATH, language="de", speed=1.0)
