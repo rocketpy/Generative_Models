@@ -53,16 +53,6 @@ tts = TTS(model_name="coqui_studio/en/Torcull Diarmuid/coqui_studio", progress_b
 tts.tts_to_file(text="This is a test.", file_path=OUTPUT_PATH)
 
 
-# Example voice cloning together with the voice conversion model.
-# This way, you can clone voices by using any model in TTS.
-
-tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
-tts.tts_with_vc_to_file(
-    "Wie sage ich auf Italienisch, dass ich dich liebe?",
-    speaker_wav="target/speaker.wav",
-    file_path="output.wav"
-)
-
 # V1 model
 models = TTS(cs_api_model="V1").list_models()
 # Run TTS with emotion and speed control
@@ -81,14 +71,17 @@ tts.tts_with_vc_to_file(
 )
 
 # XTTS-multilingual
+
 models = TTS(cs_api_model="XTTS-multilingual").list_models()
 # Run TTS with emotion and speed control
 # Emotion control only works with V1 model
 tts.tts_to_file(text="Das ist ein Test.", file_path=OUTPUT_PATH, language="de", speed=1.0)
 
 
-# # XTTS-multilingual
-models = TTS(cs_api_model="XTTS-multilingual").list_models()
-# Run TTS with emotion and speed control
-# Emotion control only works with V1 model
-tts.tts_to_file(text="Das ist ein Test.", file_path=OUTPUT_PATH, language="de", speed=1.0)
+# TTS with on the fly voice conversion
+api = TTS("tts_models/deu/fairseq/vits")
+api.tts_with_vc_to_file(
+    "Wie sage ich auf Italienisch, dass ich dich liebe?",
+    speaker_wav="target/speaker.wav",
+    file_path="output.wav"
+)
