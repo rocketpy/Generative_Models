@@ -85,3 +85,13 @@ api.tts_with_vc_to_file(
     speaker_wav="target/speaker.wav",
     file_path="output.wav"
 )
+
+
+# Command-line tts
+# Single Speaker Models:
+# List provided models:
+$ tts --list_models
+
+# Get model info
+$ tts --model_info_by_name tts_models/tr/common-voice/glow-tts
+$ tts --model_info_by_name vocoder_models/en/ljspeech/hifigan_v2
