@@ -27,3 +27,15 @@ conda env create -f environment.yaml
 conda activate fooocus
 pip install -r requirements_versions.txt
 """
+
+# Linux (Using Python Venv)
+"""
+Your Linux needs to have Python 3.10 installed, and lets say your Python can be called with command python3
+with your venv system working, you can
+
+git clone https://github.com/lllyasviel/Fooocus.git
+cd Fooocus
+python3 -m venv fooocus_env
+source fooocus_env/bin/activate
+pip install pygit2==1.12.2
+"""
