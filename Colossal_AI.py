@@ -9,6 +9,13 @@
 # CUDA_EXT=1 pip install colossalai
 # pip install colossalai-nightly
 
+# Download From Source
+git clone https://github.com/hpcaitech/ColossalAI.git
+cd ColossalAI
+
+# install colossalai
+pip install .
+
 # Requirements:
 """"
 PyTorch >= 1.11 (PyTorch 2.x in progress)
