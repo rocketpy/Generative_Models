@@ -34,3 +34,15 @@ with strategy.model_init_context():
   critic = GPTCritic()
   initial_model = deepcopy(actor).cuda()
   reward_model = RewardModel(deepcopy(critic.model), deepcopy(critic.value_head)).cuda()
+
+actor_optim = HybridAdam(actor.parameters(), lr=5e-6)
+critic_optim = HybridAdam(critic.parameters(), lr=5e-6)
+
+# prepare models and optimizers
+(actor, actor_optim), (critic, critic_optim), reward_model, initial_model = strategy.prepare(
+        (actor, actor_optim), (critic, critic_optim), reward_model, initial_model)
+
+# load saved model checkpoint after preparing
+strategy.load_model(actor, 'actor_checkpoint.pt', strict=False)
+# load saved optimizer checkpoint after preparing
+strategy.load_optimizer(actor_optim, 'actor_optim_checkpoint.pt')
