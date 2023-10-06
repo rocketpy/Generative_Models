@@ -46,3 +46,19 @@ critic_optim = HybridAdam(critic.parameters(), lr=5e-6)
 strategy.load_model(actor, 'actor_checkpoint.pt', strict=False)
 # load saved optimizer checkpoint after preparing
 strategy.load_optimizer(actor_optim, 'actor_optim_checkpoint.pt')
+
+trainer = PPOTrainer(strategy,
+                     actor,
+                     critic,
+                     reward_model,
+                     initial_model,
+                     actor_optim,
+                     critic_optim,
+                     ...)
+
+trainer.fit(dataset, ...)
+
+# save model checkpoint after fitting on only rank0
+strategy.save_model(actor, 'actor_checkpoint.pt', only_rank0=True)
+# save optimizer checkpoint on all ranks
+strategy.save_optimizer(actor_optim, 'actor_optim_checkpoint.pt', only_rank0=False)
