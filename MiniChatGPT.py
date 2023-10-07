@@ -62,3 +62,14 @@ trainer.fit(dataset, ...)
 strategy.save_model(actor, 'actor_checkpoint.pt', only_rank0=True)
 # save optimizer checkpoint on all ranks
 strategy.save_optimizer(actor_optim, 'actor_optim_checkpoint.pt', only_rank0=False)
+
+
+# How to save/load checkpoint
+# To load pretrained model, you can simply use huggingface pretrained models:
+
+# load OPT-350m pretrained model
+actor = OPTActor(pretrained='facebook/opt-350m')
+
+# To save model checkpoint:
+# save model checkpoint on only rank0
+strategy.save_model(actor, 'actor_checkpoint.pt', only_rank0=True)
