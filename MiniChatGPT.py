@@ -1,10 +1,7 @@
 # minichatgpt - To Train ChatGPT In 5 Minutes with ColossalAI
 
-
 # https://github.com/juncongmoo/minichatgpt
-
 # pip install minichatgpt
-
 
 # Usage
 """
@@ -73,3 +70,12 @@ actor = OPTActor(pretrained='facebook/opt-350m')
 # To save model checkpoint:
 # save model checkpoint on only rank0
 strategy.save_model(actor, 'actor_checkpoint.pt', only_rank0=True)
+# This function must be called after strategy.prepare()
+
+# To save optimizer checkpoint:
+# save optimizer checkpoint on all ranks
+strategy.save_optimizer(actor_optim, 'actor_optim_checkpoint.pt', only_rank0=False)
+
+# To load model checkpoint:
+# load saved model checkpoint after preparing
+strategy.load_model(actor, 'actor_checkpoint.pt', strict=False)
