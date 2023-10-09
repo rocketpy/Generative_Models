@@ -3,6 +3,8 @@
 # https://github.com/juncongmoo/minichatgpt
 # pip install minichatgpt
 
+# https://github.com/juncongmoo/minichatgpt/tree/main/examples
+
 # Usage
 """
 The main entrypoint is Trainer. We only support PPO trainer now.
@@ -79,3 +81,7 @@ strategy.save_optimizer(actor_optim, 'actor_optim_checkpoint.pt', only_rank0=Fal
 # To load model checkpoint:
 # load saved model checkpoint after preparing
 strategy.load_model(actor, 'actor_checkpoint.pt', strict=False)
+
+# To load optimizer checkpoint:
+# load saved optimizer checkpoint after preparing
+strategy.load_optimizer(actor_optim, 'actor_optim_checkpoint.pt')
