@@ -26,3 +26,8 @@ with autocast("cuda"):
     image = pipe(prompt)["sample"][0]  
     
 image.save("astronaut_rides_horse.png")
+
+
+# The following describes an example where a rough sketch made in Pinta is converted into a detailed artwork.
+# https://www.pinta-project.com/
+# python scripts/img2img.py --prompt "A fantasy landscape, trending on artstation" --init-img <path-to-img.jpg> --strength 0.8
