@@ -4,3 +4,20 @@
 # https://github.com/KoljaB/RealtimeTTS
 
 # pip install RealtimeTTS
+
+"""
+Installation into virtual environment with GPU support:
+python -m venv env_realtimetts
+env_realtimetts\Scripts\activate.bat
+python.exe -m pip install --upgrade pip
+pip install RealtimeTTS
+pip install torch==2.1.1+cu118 torchaudio==2.1.1+cu118 --index-url https://download.pytorch.org/whl/cu118
+"""
+
+# The basic usage example:
+from RealtimeTTS import TextToAudioStream, SystemEngine, AzureEngine, ElevenlabsEngine
+
+engine = SystemEngine() # replace with your TTS engine
+stream = TextToAudioStream(engine)
+stream.feed("Hello world! How are you today?")
+stream.play_async()
