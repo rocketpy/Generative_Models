@@ -18,3 +18,20 @@ from IPython.display import clear_output
 !git clone https://github.com/dvmazur/mixtral-offloading.git --quiet
 !cd mixtral-offloading && pip install -q -r requirements.txt
 clear_output()
+
+
+import sys
+
+sys.path.append("mixtral-offloading")
+import torch
+from torch.nn import functional as F
+from hqq.core.quantize import BaseQuantizeConfig
+from huggingface_hub import snapshot_download
+from IPython.display import clear_output
+from tqdm.auto import trange
+from transformers import AutoConfig, AutoTokenizer
+from transformers.utils import logging as hf_logging
+
+from src.build_model import OffloadConfig, QuantConfig, build_model
+
+hf_logging.disable_progress_bar()
