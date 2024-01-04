@@ -35,3 +35,27 @@ from transformers.utils import logging as hf_logging
 from src.build_model import OffloadConfig, QuantConfig, build_model
 
 hf_logging.disable_progress_bar()
+
+
+# Initialize model
+model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+quantized_model_name = "lavawolfiee/Mixtral-8x7B-Instruct-v0.1-offloading-demo"
+
+config = AutoConfig.from_pretrained(quantized_model_name)
+state_path = snapshot_download(quantized_model_name)
+
+device = torch.device("cuda:0")
+
+##### Change this to 5 if you have only 12 GB of GPU VRAM #####
+offload_per_layer = 4
+# offload_per_layer = 5
+###############################################################
+
+num_experts = config.num_local_experts
+
+offload_config = OffloadConfig(
+    main_size=config.num_hidden_layers * (num_experts - offload_per_layer),
+    offload_size=config.num_hidden_layers * offload_per_layer,
+    buffer_size=4,
+    offload_per_layer=offload_per_layer,
+)
