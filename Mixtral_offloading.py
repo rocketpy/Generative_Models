@@ -59,3 +59,19 @@ offload_config = OffloadConfig(
     buffer_size=4,
     offload_per_layer=offload_per_layer,
 )
+
+
+attn_config = BaseQuantizeConfig(
+    nbits=4,
+    group_size=64,
+    quant_zero=True,
+    quant_scale=True,
+)
+attn_config["scale_quant_params"]["group_size"] = 256
+
+offload_config = OffloadConfig(
+    main_size=config.num_hidden_layers * (num_experts - offload_per_layer),
+    offload_size=config.num_hidden_layers * offload_per_layer,
+    buffer_size=4,
+    offload_per_layer=offload_per_layer,
+)
