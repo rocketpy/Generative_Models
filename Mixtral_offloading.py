@@ -75,3 +75,20 @@ offload_config = OffloadConfig(
     buffer_size=4,
     offload_per_layer=offload_per_layer,
 )
+
+
+ffn_config = BaseQuantizeConfig(
+    nbits=2,
+    group_size=16,
+    quant_zero=True,
+    quant_scale=True,
+)
+quant_config = QuantConfig(ffn_config=ffn_config, attn_config=attn_config)
+
+
+model = build_model(
+    device=device,
+    quant_config=quant_config,
+    offload_config=offload_config,
+    state_path=state_path,
+)
