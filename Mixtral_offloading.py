@@ -92,3 +92,22 @@ model = build_model(
     offload_config=offload_config,
     state_path=state_path,
 )
+
+
+# Run the model
+from transformers import TextStreamer
+
+
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+streamer = TextStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+past_key_values = None
+sequence = None
+
+seq_len = 0
+while True:
+    print("User: ", end="")
+    user_input = input()
+    print("\n")
+
+    user_entry = dict(role="user", content=user_input)
+    input_ids = tokenizer.apply_chat_template([user_entry], return_tensors="pt").to(device)
