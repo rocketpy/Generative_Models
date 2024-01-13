@@ -111,3 +111,9 @@ while True:
 
     user_entry = dict(role="user", content=user_input)
     input_ids = tokenizer.apply_chat_template([user_entry], return_tensors="pt").to(device)
+
+    if past_key_values is None:
+        attention_mask = torch.ones_like(input_ids)
+    else:
+        seq_len = input_ids.size(1) + past_key_values[0][0][0].size(1)
+        attention_mask = torch.ones([1, seq_len - 1], dtype=torch.int, device=device)
