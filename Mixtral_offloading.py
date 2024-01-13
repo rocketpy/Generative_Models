@@ -117,3 +117,22 @@ while True:
     else:
         seq_len = input_ids.size(1) + past_key_values[0][0][0].size(1)
         attention_mask = torch.ones([1, seq_len - 1], dtype=torch.int, device=device)
+
+print("Mixtral: ", end="")
+result = model.generate(
+    input_ids=input_ids,
+    attention_mask=attention_mask,
+    past_key_values=past_key_values,
+    streamer=streamer,
+    do_sample=True,
+    temperature=0.9,
+    top_p=0.9,
+    max_new_tokens=512,
+    pad_token_id=tokenizer.eos_token_id,
+    return_dict_in_generate=True,
+    output_hidden_states=True,
+)
+    print("\n")
+    sequence = result["sequences"]
+    past_key_values = result["past_key_values"]
+     
