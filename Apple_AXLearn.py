@@ -20,3 +20,11 @@ Simply do an editable install with:
 # Note: This also installs dependencies required for launching jobs to GCP.
 pip install -e '.[gcp]'
 """
+
+
+# Create a new file axlearn/experiments/tutorial.py with the following skeleton:
+# Imports to be added here...
+
+def resnet_imagenet_trainer():
+    # Code to be added here...
+    ...
