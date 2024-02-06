@@ -53,3 +53,11 @@ writer = Agent(
     allow_delegation=True,
     # (optional) llm=ollama_llm\
 )
+
+# Create tasks for your agents
+task1 = Task(
+  description="""Conduct a comprehensive analysis of the latest advancements in AI in 2024.
+  Identify key trends, breakthrough technologies, and potential industry impacts.
+  Your final answer MUST be a full analysis report""",
+  agent=researcher
+)
