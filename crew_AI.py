@@ -61,3 +61,12 @@ task1 = Task(
   Your final answer MUST be a full analysis report""",
   agent=researcher
 )
+
+task2 = Task(
+  description="""Using the insights provided, develop an engaging blog
+  post that highlights the most significant AI advancements.
+  Your post should be informative yet accessible, catering to a tech-savvy audience.
+  Make it sound cool, avoid complex words so it doesn't sound like AI.
+  Your final answer MUST be the full blog post of at least 4 paragraphs.""",
+  agent=writer
+)
