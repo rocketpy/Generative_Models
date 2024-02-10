@@ -70,3 +70,16 @@ task2 = Task(
   Your final answer MUST be the full blog post of at least 4 paragraphs.""",
   agent=writer
 )
+
+# Instantiate your crew with a sequential process
+crew = Crew(
+  agents=[researcher, writer],
+  tasks=[task1, task2],
+  verbose=2, # You can set it to 1 or 2 to different logging levels
+)
+
+# Get your crew to work!
+result = crew.kickoff()
+
+print("********")
+print(result)
