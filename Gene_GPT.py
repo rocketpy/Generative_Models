@@ -13,3 +13,16 @@ You also need an OpenAI API key to run GeneGPT with Codex. Replace the placehold
 $ cat config.py 
 API_KEY = 'YOUR_OPENAI_API_KEY'
 """
+
+# Using GeneGPT
+"""
+After setting up the environment, one can run GeneGPT on GeneTuring by:
+
+python main.py 111111
+where 111111 denotes that all Documentations (Dc.1-2) and Demonstrations (Dm.1-4) are used.
+
+To run GeneGPT-slim, simply use:
+
+python main.py 001001
+which will only use the Dm.1 and Dm.4 for in-context learning.
+"""
