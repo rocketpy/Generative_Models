@@ -26,3 +26,17 @@ To run GeneGPT-slim, simply use:
 python main.py 001001
 which will only use the Dm.1 and Dm.4 for in-context learning.
 """
+
+# Evaluating GeneGPT
+"""
+One can evaluate the results by running:
+
+python evaluate.py ${RESULT_DIRECTORY}
+For example, we also put our experimental results in geneturing_results and geneturing_results. By running:
+
+python evaluate.py geneturing_results/001001/
+The user can get the evaluation results of GeneGPT-slim:
+
+Evaluating geneturing_results/001001/Gene alias.json
+0.84
+"""
