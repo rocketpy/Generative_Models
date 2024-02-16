@@ -110,3 +110,31 @@ Key Components:
 ./stock_analysis_agents.py: Main file with the agents creation.
 ./tools: Contains tool classes used by the agents.
 """
+
+# Using GPT 3.5
+# CrewAI allow you to pass an llm argument to the agent construtor, that will be it's brain,
+# so changing the agent to use GPT-3.5 instead of GPT-4 is as simple as passing that argument on the agent you want to use that LLM (in main.py).
+
+
+from langchain.chat_models import ChatOpenAI
+
+llm = ChatOpenAI(model='gpt-3.5') # Loading GPT-3.5
+
+def local_expert(self):
+	return Agent(
+      role='The Best Financial Analyst',
+      goal="""Impress all customers with your financial data 
+      and market trends analysis""",
+      backstory="""The most seasoned financial analyst with 
+      lots of expertise in stock market analysis and investment
+      strategies that is working for a super important customer.""",
+      verbose=True,
+      llm=llm, # <----- passing our llm reference here
+      tools=[
+        BrowserTools.scrape_and_summarize_website,
+        SearchTools.search_internet,
+        CalculatorTools.calculate,
+        SECTools.search_10q,
+        SECTools.search_10k
+      ]
+    )
