@@ -15,3 +15,19 @@ or set up TPU VM with:
 sh tpu_requirements.sh
 """
 
+
+# Command-line usage
+"""
+In this section, we provide instructions on how to run each of the provided scripts.
+For each script, you may need to fill in your own paths and values in the variables described in the beginning of each script.
+
+To run each of the following scripts, use bash <script_name>.sh:
+
+Language model training: bash scripts/run_train_text.sh
+Vision-Language model training: bash scripts/run_train_vision_text.sh
+Single Needle Evals (Language Model): bash scripts/run_eval_needle.sh
+Multi Needle Evals (Language Model): bash scripts/run_eval_needle_multi.sh
+Sampling images (Vision-Language Model): bash scripts/run_sample_image.sh
+Sampling videos (Vision-LanguageModel): bash scripts/run_sample_video.sh
+Image / Video understanding (Vision-Language Model): bash scripts/run_vision_chat.sh
+"""
