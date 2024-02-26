@@ -37,3 +37,23 @@ mamba activate ok-robot-env
 cd ok-robot-manipulation/src
 python demo.py --open_communication --debug
 """
+
+
+# On Robot:
+"""
+Before running anything on the robot, you need to calibrate it by
+
+stretch_robot_home.py
+
+Our robot codes rely on robot controllers provided by home-robot.
+Just like running other home-robot based codes, you need to run two processes synchronously in two terminals.
+
+In one terminal start the home-robot
+
+roslaunch home_robot_hw startup_stretch_hector_slam.launch
+In another terminal run the robot control. More details in ok-robot-hw
+
+cd ok-robot-hw
+
+python run.py -x1 [x1] -y1 [y1] -x2 [x2] -y2 [y2] -ip [your workstation ip]
+"""
