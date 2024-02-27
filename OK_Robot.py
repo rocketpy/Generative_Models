@@ -40,6 +40,7 @@ python demo.py --open_communication --debug
 
 
 # On Robot:
+# Home-robot: https://github.com/facebookresearch/home-robot
 """
 Before running anything on the robot, you need to calibrate it by
 
