@@ -5,6 +5,27 @@
 # git clone https://github.com/facebookresearch/home-robot --branch home-robot-ovmm-challenge-2023-v0.1.2
 
 
+# Installation
+"""
+Preliminary
+HomeRobot requires Python 3.9. Installation on a workstation requires conda and mamba.
+Installation on a robot assumes Ubuntu 20.04 and ROS Noetic.
+
+To set up the hardware stack on a Hello Robot Stretch, see the ROS installation instructions in home_robot_hw.
+
+You may need a calibrated URDF for our inverse kinematics code to work well; see calibration notes.
+
+Spot installation instructions are experimental but are also available.
+
+Network Setup
+Follow the network setup guide to set up your robot to use the network,
+and make sure that it can communicate between workstation and robot via ROS. On the robot side,
+start up the controllers with:
+
+roslaunch home_robot_hw startup_stretch_hector_slam.launch
+"""
+
+
 # Workstation Instructions
 """
 To set up your workstation, follow these instructions.
