@@ -41,3 +41,21 @@ Then clone home-robot locally:
 git clone https://github.com/facebookresearch/home-robot.git
 cd ./home-robot
 """
+
+
+# Create Your Environment
+"""
+If necessary, install mamba in your base conda environment. Optionally: install ROS noetic on your workstation.
+
+# If using ROS - make sure you don't have PYTHONPATH set
+unset PYTHONPATH
+
+# Otherwise, use the version in src/home_robot
+mamba env create -n home-robot -f src/home_robot/environment.yml
+
+# Activate the environment
+conda activate home-robot
+
+# Optionally, update this environment to install ROS
+mamba env update -f src/home_robot_hw/environment.yml
+"""
