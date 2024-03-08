@@ -59,3 +59,24 @@ conda activate home-robot
 # Optionally, update this environment to install ROS
 mamba env update -f src/home_robot_hw/environment.yml
 """
+
+
+# Run Install Script
+"""
+Make sure you have the correct environment variables set: CUDA_HOME should point to your cuda install, matching the one used by your python environment.
+We recommend 11.7, and it's what will be automatically installed above as a part of the conda environment.
+
+To build some third-party dependencies, you also need the full cuda toolkit with its compiler, nvcc. You can download it from nvidia's downloads page.
+Download the runfile, and make sure to check the box NOT to install your drivers or update your system cuda version. It will be installed at a separate location.
+
+Then make sure the environment variables are set to something reasonable, for example:
+
+export HOME_ROBOT_ROOT=$USER/home-robot
+export CUDA_HOME=/usr/local/cuda-11.7
+Finally, you can run the install script to download submodules, model checkpoints, and build Detic for open-vocabulary object detection:
+
+conda activate home-robot
+cd $HOME_ROBOT_ROOT
+./install_deps.sh
+"""
+  
