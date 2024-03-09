@@ -79,4 +79,37 @@ conda activate home-robot
 cd $HOME_ROBOT_ROOT
 ./install_deps.sh
 """
-  
+
+
+# Examples:
+
+# Basic control
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This source code is licensed under the MIT license found in the
+# LICENSE file in the root directory of this source tree.
+
+
+import numpy as np
+from home_robot.motion.stretch import STRETCH_HOME_Q, HelloStretchKinematics
+from home_robot_hw.remote import StretchClient
+
+
+if __name__ == "__main__":
+    robot = StretchClient()
+    model = HelloStretchKinematics()
+
+    # Acquire camera observations
+    imgs = robot.head.get_images()
+
+    # Get camera pose
+    camera_pose = robot.head.get_pose()
+    print(f"camera_pose={camera_pose}")
+
+    # Move camera
+    robot.head.set_pan_tilt(pan=np.pi / 4, tilt=-np.pi / 3)
+    robot.head.look_at_ee()
+    robot.head.look_ahead()
+
+    # Switch to navigation mode
+    robot.switch_to_navigation_mode()
+    assert robot.in_navigation_mode()
