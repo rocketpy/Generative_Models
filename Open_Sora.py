@@ -43,3 +43,17 @@ To launch training on multiple nodes, prepare a hostfile according to ColossalAI
 
 colossalai run --nproc_per_node 8 --hostfile hostfile scripts/train.py configs/opensora/train/64x512x512.py --data-path YOUR_CSV_PATH --ckpt-path YOUR_PRETRAINED_CKPT
 """
+
+
+# Acknowledgement
+"""
+ColossalAI: A powerful large model parallel acceleration and optimization system.
+DiT: Scalable Diffusion Models with Transformers.
+OpenDiT: An acceleration for DiT training. We adopt valuable acceleration strategies for training progress from OpenDiT.
+PixArt: An open-source DiT-based text-to-image model.
+Latte: An attempt to efficiently train DiT for video.
+StabilityAI VAE: A powerful image VAE model.
+CLIP: A powerful text-image embedding model.
+T5: A powerful text encoder.
+LLaVA: A powerful image captioning model based on Yi-34B.
+"""
