@@ -21,3 +21,16 @@ detections = sv.Detections.from_ultralytics(result)
 
 # len(detections)
 # 5
+
+
+import cv2
+import supervision as sv
+
+image = cv2.imread(...)
+detections = sv.Detections(...)
+
+bounding_box_annotator = sv.BoundingBoxAnnotator()
+annotated_frame = bounding_box_annotator.annotate(
+    scene=image.copy(),
+    detections=detections
+)
