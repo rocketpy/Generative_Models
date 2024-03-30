@@ -1,6 +1,7 @@
 # supervision
 
 # https://github.com/roboflow/supervision
+# https://supervision.roboflow.com/latest/
 
 # pip install supervision
 
@@ -34,3 +35,23 @@ annotated_frame = bounding_box_annotator.annotate(
     scene=image.copy(),
     detections=detections
 )
+
+
+# Datasets
+
+# Supervision provides a set of utils that allow you to load, split, merge,
+# and save datasets in one of the supported formats.
+
+import supervision as sv
+
+dataset = sv.DetectionDataset.from_yolo(
+    images_directory_path=...,
+    annotations_directory_path=...,
+    data_yaml_path=...
+)
+
+# dataset.classes
+# ['dog', 'person']
+
+# len(dataset)
+# 1000
