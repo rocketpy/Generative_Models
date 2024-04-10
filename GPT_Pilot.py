@@ -28,3 +28,17 @@ After, this, you can just follow the instructions in the terminal.
 
 All generated code will be stored in the folder workspace inside the folder named after the app name you enter upon starting the pilot.
 """
+
+# How to start gpt-pilot in docker?
+"""
+git clone https://github.com/Pythagora-io/gpt-pilot.git (clone the repo)
+Update the docker-compose.yml environment variables, which can be done via docker compose config. If you wish to use a local model,
+please go to https://localai.io/basics/getting_started/.
+By default, GPT Pilot will read & write to ~/gpt-pilot-workspace on your machine, you can also edit this in docker-compose.yml
+run docker compose build. this will build a gpt-pilot container for you.
+run docker compose up.
+access the web terminal on port 7681
+python main.py (start GPT Pilot)
+This will start two containers, one being a new image built by the Dockerfile and a Postgres database.
+The new image also has ttyd installed so that you can easily interact with gpt-pilot. Node is also installed on the image and port 3000 is exposed.
+"""
