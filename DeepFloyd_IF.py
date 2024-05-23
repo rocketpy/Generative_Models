@@ -7,7 +7,21 @@
 # pip install xformers==0.0.16
 # pip install git+https://github.com/openai/CLIP.git --no-deps
 
+# Next we install diffusers and dependencies:
+# pip install diffusers accelerate transformers safetensors
+
 
 from huggingface_hub import login
 
 login()
+
+
+import torch
+from diffusers import DiffusionPipeline
+from diffusers.utils import pt_to_pil
+
+
+# stage 1
+stage_1 = DiffusionPipeline.from_pretrained("DeepFloyd/IF-I-XL-v1.0", variant="fp16", torch_dtype=torch.float16)
+stage_1.enable_xformers_memory_efficient_attention()  # remove line if torch.__version__ >= 2.0.0
+stage_1.enable_model_cpu_offload()
