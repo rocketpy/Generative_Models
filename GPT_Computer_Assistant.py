@@ -31,3 +31,16 @@ coder = Agent(
 )
 
 start()
+
+
+# Adding Custom Tools | NEW
+# Now you are able to add custom tools that run in the agentic infra and assistant processes.
+
+from gpt_computer_assistant import Tool, start
+
+@Tool
+def sum_tool(first_number: int, second_number: int) -> str:
+    """Useful for when you need to sum two numbers together."""
+    return first_number + second_number
+
+start()
