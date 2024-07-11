@@ -33,3 +33,13 @@ DOCKER_URI=gemma:${USER}
 
 docker build -f docker/Dockerfile ./ -t ${DOCKER_URI}
 """
+
+# example
+
+# Kaggle access
+import kagglehub
+
+kagglehub.login()
+
+# Install dependencies
+# pip install -q -U torch immutabledict sentencepiece
