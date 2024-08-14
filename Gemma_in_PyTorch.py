@@ -43,3 +43,11 @@ kagglehub.login()
 
 # Install dependencies
 # pip install -q -U torch immutabledict sentencepiece
+
+# Choose variant and machine type
+VARIANT = '2b-it'
+MACHINE_TYPE = 'cuda'
+
+CONFIG = VARIANT[:2]
+if CONFIG == '2b':
+  CONFIG = '2b-v2'
