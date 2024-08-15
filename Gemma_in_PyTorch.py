@@ -50,4 +50,19 @@ MACHINE_TYPE = 'cuda'
 
 CONFIG = VARIANT[:2]
 if CONFIG == '2b':
-  CONFIG = '2b-v2'
+    CONFIG = '2b-v2'
+
+
+import os
+import kagglehub
+
+# Load model weights
+weights_dir = kagglehub.model_download(f'google/gemma-2-2b/pyTorch/gemma-2-{VARIANT}')
+
+# Ensure that the tokenizer is present
+tokenizer_path = os.path.join(weights_dir, 'tokenizer.model')
+assert os.path.isfile(tokenizer_path), 'Tokenizer not found!'
+
+# Ensure that the checkpoint is present
+ckpt_path = os.path.join(weights_dir, f'model.ckpt')
+assert os.path.isfile(ckpt_path), 'PyTorch checkpoint not found!'
