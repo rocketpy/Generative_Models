@@ -29,3 +29,20 @@ docker build -t f5tts:v1 .
 
 # Or pull from GitHub Container Registry
 docker pull ghcr.io/swivid/f5-tts:main
+
+# Gradio App
+"""
+Currently supported features:
+
+Basic TTS with Chunk Inference
+Multi-Style / Multi-Speaker Generation
+Voice Chat powered by Qwen2.5-3B-Instruct
+# Launch a Gradio app (web interface)
+f5-tts_infer-gradio
+
+# Specify the port/host
+f5-tts_infer-gradio --port 7860 --host 0.0.0.0
+
+# Launch a share link
+f5-tts_infer-gradio --share
+"""
