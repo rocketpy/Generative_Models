@@ -63,3 +63,10 @@ f5-tts_infer-cli -c custom.toml
 
 # Multi voice. See src/f5_tts/infer/README.md
 f5-tts_infer-cli -c src/f5_tts/infer/examples/multi/story.toml
+
+  
+# Training
+# https://github.com/SWivid/F5-TTS/tree/main/src/f5_tts/train
+
+# Quick start with Gradio web interface
+f5-tts_finetune-gradio
