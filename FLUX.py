@@ -29,3 +29,15 @@ request.save("outputs/api.jpg")
 # saves the sample to local storage
 request.image
 # -> a PIL image
+
+
+# Usage from the command line:
+
+$ python -m flux.api --prompt="A beautiful beach" url
+https:<...>/sample.jpg
+
+# generate and save the result
+$ python -m flux.api --prompt="A beautiful beach" save outputs/api
+
+# open the image directly
+$ python -m flux.api --prompt="A beautiful beach" image show
