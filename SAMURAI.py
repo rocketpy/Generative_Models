@@ -16,4 +16,32 @@ Please see INSTALL.md from the original SAM 2 repository for FAQs on potential i
 Install other requirements:
 
 pip install matplotlib==3.7 tikzplotlib jpeg4py opencv-python lmdb pandas scipy loguru
+
+# Checkpoint Download
+
+cd checkpoints && \
+./download_ckpts.sh && \
+cd ..
+
+
+# Data Preparation
+Please prepare the data in the following format:
+
+data/LaSOT
+├── airplane/
+│   ├── airplane-1/
+│   │   ├── full_occlusion.txt
+│   │   ├── groundtruth.txt
+│   │   ├── img
+│   │   ├── nlp.txt
+│   │   └── out_of_view.txt
+│   ├── airplane-2/
+│   ├── airplane-3/
+│   ├── ...
+├── basketball
+├── bear
+├── bicycle
+...
+├── training_set.txt
+└── testing_set.txt
 """
