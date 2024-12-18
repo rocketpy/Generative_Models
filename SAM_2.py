@@ -3,3 +3,13 @@
 
 # https://github.com/facebookresearch/sam2
 
+
+# Getting Started
+"""
+Download Checkpoints
+First, we need to download a model checkpoint. All the model checkpoints can be downloaded by running:
+
+cd checkpoints && \
+./download_ckpts.sh && \
+cd ..
+"""
