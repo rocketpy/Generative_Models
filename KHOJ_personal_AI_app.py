@@ -2,6 +2,9 @@
 
 # https://github.com/khoj-ai/khoj
 
+# Docs - https://docs.khoj.dev/
+# Web - https://khoj.dev/
+
 # Features:
 """
 - Chat with any local or online LLM (e.g llama3, qwen, gemma, mistral, gpt, claude, gemini).
@@ -15,3 +18,6 @@
 - Run it privately on your computer or try it on our cloud app.
 """
 
+# Quickstart
+# https://app.khoj.dev/
+# https://docs.khoj.dev/get-started/setup/
