@@ -49,4 +49,18 @@ Easiest way is to use a package manager like conda or uv to create a new virtual
 
 cd DeepSeek-V3/inference
 pip install -r requirements.txt
+
+Model Weights Conversion
+Convert Hugging Face model weights to a specific format:
+
+python convert.py --hf-ckpt-path /path/to/DeepSeek-V3 --save-path /path/to/DeepSeek-V3-Demo --n-experts 256 --model-parallel 16
+
+Run
+Then you can chat with DeepSeek-V3:
+
+torchrun --nnodes 2 --nproc-per-node 8 --node-rank $RANK --master-addr $ADDR generate.py --ckpt-path /path/to/DeepSeek-V3-Demo --config configs/config_671B.json --interactive --temperature 0.7 --max-new-tokens 200
+
+Or batch inference on a given file:
+
+torchrun --nnodes 2 --nproc-per-node 8 --node-rank $RANK --master-addr $ADDR generate.py --ckpt-path /path/to/DeepSeek-V3-Demo --config configs/config_671B.json --input-file $FILE
 """
