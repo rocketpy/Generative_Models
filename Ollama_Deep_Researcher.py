@@ -7,7 +7,7 @@
 """
 Mac
 
-Download the Ollama app for Mac here.
+Download the Ollama app for Mac - https://ollama.com/download
 
 Pull a local LLM from Ollama. As an example:
 
@@ -35,4 +35,20 @@ Launch LangGraph server:
 # Install uv package manager
 curl -LsSf https://astral.sh/uv/install.sh | sh
 uvx --refresh --from "langgraph-cli[inmem]" --with-editable . --python 3.11 langgraph dev
+
+
+# Windows
+
+(Recommended) Create a virtual environment:
+Install Python 3.11 (and add to PATH during installation).
+Restart your terminal to ensure Python is available, then create and activate a virtual environment:
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+Launch LangGraph server:
+# Install dependencies
+pip install -e .
+pip install -U "langgraph-cli[inmem]"            
+
+# Start the LangGraph server
+langgraph dev
 """
