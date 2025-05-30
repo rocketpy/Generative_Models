@@ -12,3 +12,7 @@ Submit a sample (.wav format, < 24s, and please do not contain space in filename
 Bilingual Support: Supports both Chinese and English, and code-switching.
 Controllable: Supports accent intensity control  and fine-grained pronunciation/duration adjustment (coming soon).
 """
+
+# Installation
+# Clone the repositoryn - git clone https://github.com/bytedance/MegaTTS3
+# cd MegaTTS3
