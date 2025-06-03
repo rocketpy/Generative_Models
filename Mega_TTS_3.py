@@ -27,4 +27,20 @@ conda create -n megatts3-env python=3.10
 conda activate megatts3-env
 pip install -r requirements.txt
 
+# Set the root directory
+export PYTHONPATH="/path/to/MegaTTS3:$PYTHONPATH"
+
+# [Optional] Set GPU
+export CUDA_VISIBLE_DEVICES=0
+
+# If you encounter bugs with pydantic in inference, you should check if the versions of pydantic and gradio are matched.
+# [Note] if you encounter bugs related with httpx, please check that whether your environmental variable "no_proxy" has patterns like "::"
+
+
+# Requirements (for Windows)
+
+# [The Windows version is currently under testing]
+# Comment below dependence in requirements.txt:
+# # WeTextProcessing==1.0.4.1
+
 """
