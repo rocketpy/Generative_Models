@@ -43,4 +43,14 @@ export CUDA_VISIBLE_DEVICES=0
 # Comment below dependence in requirements.txt:
 # # WeTextProcessing==1.0.4.1
 
+# Create a python 3.10 conda env (you could also use virtualenv)
+conda create -n megatts3-env python=3.10
+conda activate megatts3-env
+pip install -r requirements.txt
+conda install -y -c conda-forge pynini==2.1.5
+pip install WeTextProcessing==1.0.3
+
+# [Optional] If you want GPU inference, you may need to install specific version of PyTorch for your GPU from https://pytorch.org/.
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+
 """
