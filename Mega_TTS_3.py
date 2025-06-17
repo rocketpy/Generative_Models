@@ -65,4 +65,18 @@ conda env config vars set PYTHONPATH="C:\path\to\MegaTTS3;%PYTHONPATH%" # For co
 set CUDA_VISIBLE_DEVICES=0 # Windows
 $env:CUDA_VISIBLE_DEVICES=0 # Powershell on Windows
 
+
+# Requirements (for Docker)
+
+# [The Docker version is currently under testing]
+# ! You should download the pretrained checkpoint before running the following command
+docker build . -t megatts3:latest
+
+# For GPU inference
+docker run -it -p 7929:7929 --gpus all -e CUDA_VISIBLE_DEVICES=0 megatts3:latest
+# For CPU inference
+docker run -it -p 7929:7929  megatts3:latest
+
+# Visit http://0.0.0.0:7929/ for gradio.
+
 """
