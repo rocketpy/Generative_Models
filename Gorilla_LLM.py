@@ -17,5 +17,16 @@ curated and easy to be trained on!
 
 Since our initial release, we've served ~500k requests and witnessed incredible adoption by developers worldwide. 
 The project has expanded to include tools, evaluations, leaderboard, 
-end-to-end finetuning recipes, infrastructure components, and the Gorilla API Store:
+end-to-end finetuning recipes, infrastructure components.
+"""
+
+# Installation Options
+"""
+Gorilla CLI - Fastest way to get started
+pip install gorilla-cli
+gorilla generate 100 random characters into a file called test.txt
+
+# To Run Gorilla Locally
+git clone https://github.com/ShishirPatil/gorilla.git
+cd gorilla/inference
 """
