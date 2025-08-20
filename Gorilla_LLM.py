@@ -30,3 +30,32 @@ gorilla generate 100 random characters into a file called test.txt
 git clone https://github.com/ShishirPatil/gorilla.git
 cd gorilla/inference
 """
+
+
+# Use OpenFunctions
+import openai
+
+openai.api_key = "EMPTY"
+openai.api_base = "http://luigi.millennium.berkeley.edu:8000/v1"
+
+# Define your functions
+functions = [{
+    "name": "get_current_weather",
+    "description": "Get weather in a location",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "location": {"type": "string"},
+            "unit": {"type": "string", "enum": ["celsius", "fahrenheit"]}
+        },
+        "required": ["location"]
+    }
+}]
+
+
+# Make API call
+completion = openai.ChatCompletion.create(
+    model="gorilla-openfunctions-v2",
+    messages=[{"role": "user", "content": "What's the weather in San Francisco?"}],
+    functions=functions
+)
