@@ -3,6 +3,9 @@
 
 # https://github.com/ShishirPatil/gorilla
 
+# How to Use Gorilla: A Step-by-Step Walkthrough
+# https://gorilla.cs.berkeley.edu/blogs/5_how_to_gorilla.html
+
 """
 # About
 Gorilla enables LLMs to use tools by invoking APIs. Given a natural language query, 
